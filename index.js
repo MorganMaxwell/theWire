@@ -1,20 +1,26 @@
-window.onload = function () {
+$(document).ready(function () {
+    console.log("testing");
 
+/*
+    - Name/Nickname
+    - Job/Title
+    - Picture
+    - About section
+    - Related Organization(street, cops, etc)
+    - Spoiler info
+        - Alive?
+        - Arrested?
+        - Moved Away?
+        - Season Relevance
+*/
     function Character(job, name, picture) {
-        this.job = job;
+        this.job = job
         this.name = name
-        this.picture = picture;
-    };
-    let CDaniels = new Character("Lieutenant", "Cedric Daniels", "url");
-
-
+        this.picture = picture
+    }
+    let CDaniels = new Character("Lieutenant", "Cedric Daniels", "./pictures/CDaniels.jpg");
 
     $("#button").click(function () {
-        console.log("working button");
-        let content = $("#")
-        $("#daniels").html(function() {
-            content += `${CDaniels.job} ${CDaniels.name}`
-            return content
-        });
-    });
-};
+        console.log(CDaniels.name)
+    })
+})

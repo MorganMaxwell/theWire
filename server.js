@@ -1,13 +1,11 @@
-const express = require('express');
-const router = express.Router()
+const express = require('express')
+const app = express()
+const port = 3000
 
-const app = express();
 
-router.get('/', (req, res) => {
-    res.sendFile(__dirname + "/index.html");
-});
+app.use(express.static('theWire'))
 
-app.use("/", router);
-app.listen(2020, () => {
-    console.log('server is listening on port 2020');
-});
+
+app.listen(port, () => {
+  console.log(`Listening at http://localhost:${port}`)
+})
