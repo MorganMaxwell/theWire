@@ -12,23 +12,41 @@ $(document).ready(function () {
             - Season Relevance
     */
 
+    function Character(job, name, picture) {
+        this.job = job
+        this.name = name
+        this.picture = picture
+    };
+
     let initListOfCharacters = () => {
-
         // TODO: use scraped data to make character objects and add to array
-        function Character(job, name, picture) {
-            this.job = job
-            this.name = name
-            this.picture = picture
-        };
-
         let CDaniels = new Character(
             "Lieutenant",
             "Cedric Daniels",
-            "./images/CDaniels.jpeg"
+            "./images/Cedric_Daniels.jpeg"
+        );
+        let OmarLittle = new Character(
+            "Stick-up man",
+            "Omar Little",
+            "./images/Omar_Little.png"
+        );
+
+        let AvonBarksdale = new Character(
+            "Drug kingpin",
+            "Avon Barksdale",
+            "./images/Avon_Barksdale.jpeg"
+        );
+
+        let DAngeloBarksdale = new Character(
+            "Crew Chief",
+            "D'Angelo Barksdale",
+            "./images/D'Angelo_Barksdale.jpeg"
         );
 
         let characters = [];
-        characters.push(CDaniels);
+        characters.push(CDaniels, OmarLittle, AvonBarksdale, DAngeloBarksdale);
+
+        let columnCounter = 1;
 
         characters.forEach((character) => {
 
@@ -37,7 +55,7 @@ $(document).ready(function () {
 
                 let cardImage = document.createElement('img');
                 cardImage.className = "card-img-top";
-                cardImage.setAttribute('src', character.picture)
+                cardImage.setAttribute('src', character.picture);
 
                 let cardBody = document.createElement('div');
                 cardBody.className = "card-body";
@@ -50,13 +68,18 @@ $(document).ready(function () {
                     job.className = 'card-text';
                     job.innerText = character.job;
                     
+                cardBody.appendChild(title);
+                cardBody.appendChild(job);
 
-                    cardBody.appendChild(title);
-                    cardBody.appendChild(job);
             cardContainer.appendChild(cardImage);
             cardContainer.appendChild(cardBody);
 
-            document.getElementById("test").replaceWith(cardContainer);
+            document.getElementById(`col${columnCounter}`).appendChild(cardContainer);
+
+            if (columnCounter % 3 === 0) {
+                columnCounter = 0
+            };
+            columnCounter++;
         });
     };
     initListOfCharacters();
