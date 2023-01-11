@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    console.log("ready");
     /*  - Name/Nickname ☑️
         - Job/Title ☑️
         - Picture ☑️
@@ -10,77 +9,271 @@ $(document).ready(function () {
             - Arrested?
             - Moved Away?
             - Season Relevance
-    */
 
-    function Character(job, name, picture) {
-        this.job = job
-        this.name = name
-        this.picture = picture
-    };
+        TODO: Media in CSS should change # of columns based on resolution and rotation.
+    */
+        let journalists = [
+            "RebeccaCorbett",
+            "AugustusHaynes",
+            "JamesWhiting",
+            "ThomasKlebanow",
+            "TimPhelps",
+            "StevenLuxenberg",
+            "JaySpry",
+            "AlmaGutierrez",
+            "ScottTempleton",
+            "JeffPrice",
+            "BillZorzi",
+            "MikeFletcher",
+            "RogerTwigg"
+        ]
+        
+        let educators = [
+            "HowardColvinBunny",
+            "MarciaDonnelly",
+            "MissDuquette",
+            "DavidParenti",
+            "RolandPryzblylewskiPrez",
+            "GraceSampson",
+            "ClaudellWithers",
+            "NamondBrice",
+            "AaronManigaultBug",
+            "ZenobiaDawson",
+            "TyrellDonut",
+            "CrystalJudkins",
+            "MichaelLee",
+            "AlbertStokes",
+            "DarnellTyson",
+            "RandyWagstaff",
+            "DuquanWeemsDukie",
+            "KarimWilliams"
+        ]
+        
+        let dockWorkers = [
+            "FrankSobotka",
+            "JoanSobotka",
+            "LouisSobotka",
+            "NickSobotka",
+            "ZiggySobotka",
+            "NatCoxson",
+            "VernonMotleyOtt",
+            "LittleBigRoy",
+            "ThomasPakusaHorseface",
+            "JohnnySpamantoFifty",
+            "BigRoy",
+            "Chess",
+            "LaLa",
+            "Maui",
+            "Aimee",
+            "Delores",
+            "BruceDiBiago",
+            "TheGreek"
+        ]
+        
+        let omars = [
+            "OmarLittle",
+            "ButchieMostlyBlind",
+            "BrandonWright",
+            "Dante",
+            "Renaldo",
+            "JohnBailey",
+            "KimmyMitchell",
+            "ToshaMitchell",
+            "BigGuy",
+            "Donnie"
+        ]
+        
+        let stansfields = [
+            "MarloStanfield",
+            "ChristPartlow",
+            "MonkMetcalf",
+            "SavinoBratton",
+            "MelvinWagstaffCheese",
+            "FeliciaPearsonSnoop",
+            "MichaelLee",
+            "DariusHillO-Dog",
+            "BodieBroadus",
+            "PootCarr",
+            "NamondBrice",
+            "DuquanWeemsDukie",
+            "Fruit",
+            "Jamal",
+            "Justin",
+            "Boo",
+            "Kenard",
+            "LittleKevin",
+            "Spider",
+            "Vinson",
+            "OldFaceAndre"
+        ]
+        
+        let barksdales = [
+            "AvonBarksdale",
+            "RussellBell",
+            "SeanMcGinty",
+            "SlimCharles",
+            "MarquisHiltonBird",
+            "WintellRoyceLittleMan",
+            "Perry",
+            "SavinoBratton",
+            "AntonArtisStinkum",
+            "RolandBriceWee-Bey",
+            "Country",
+            "Rico",
+            "Bernard",
+            "Cute",
+            "Devonne",
+            "Gerard",
+            "Sapper",
+            "D’AngeloBarksdale",
+            "RonnieMo",
+            "BodieBroadus",
+            "Poot",
+            "Sterling",
+            "Wallace",
+            "Puddin",
+            "KevinJohnston",
+            "WendellBlockerOrlando",
+            "ShardeneInnes",
+            "MauriceLevy",
+            "BriannaBarksdale",
+            "De’LondaBrice",
+        ]
+        
+        let politicians = [
+            "ClayDavis",
+            "DamienPrice",
+            "OdellWatkins",
+            "NereseCampbell",
+            "TommyCarcetti",
+            "MarlanDaniels",
+            "JerileeBennett",
+            "AnthonyGray",
+            "MichaelSteintorf",
+            "NormanWilson",
+            "EunettaPerkins",
+            "ColemanParker",
+            "ClarenceRoyce",
+            "TheresaD’Agostino",
+            "AndyKrawczyk",
+            "Jen Carcetti"
+        ]
+        
+        let cops = [
+            "WilliamRawls",
+            "CedricDaniels",
+            "StanislausValchek",
+            "BobbyReed",
+            "WarrenFrazier",
+            "ErvinBurrell",
+            "RaymondFoerster",
+            "JimmyAsher",
+            "LesterFreamon",
+            "KennethDozerman",
+            "JimmyMcNulty",
+            "LeanderSydnor",
+            "CharlesMarimow",
+            "ThomasHauk",
+            "EllisCarver",
+            "PatrickMahon",
+            "AugustusPolk",
+            "MichaelSantangelo",
+            "ShakimaGreggs",
+            "RolandPryzbylewski",
+            "CarolineMassey",
+            "JayLandsman",
+            "FrankBarlow",
+            "Christeson",
+            "MichaelCrutchfield",
+            "VernonHolley",
+            "WilliamMoreland",
+            "EdNorris",
+            "Winona",
+            "RayCole",
+            "DennisMello",
+            "BrianBaker",
+            "BobbyBrown",
+            "AaronCastor",
+            "EddieWalker",
+            "AnthonyColicchio",
+            "LloydGarrick",
+            "Lambert",
+            "HowardColvin",
+            "WalterCantrell",
+            "ClaudeDiggins",
+            "RandallFrazier",
+            "BeadieRussell",
+            "MarvinTaylor",
+            "Torret"
+        ]
+        
+        let copRelatives = [
+            "Cheryl",
+            "ElenaMcNulty",
+            "SeanMcNulty",
+            "MichaelMcNulty",
+            "GaryD’Addario",
+            "LeonardHamm",
+            "JayLandsman",
+            "EdwardNorris",
+            "JimmyRood",
+            "DonaldWorden",
+        ]
+        
+        let fbi = [
+            "TerranceFitzhugh",
+            "AmandaReese",
+            "KristosKoutris"
+        ]
+        
+        let courts = [
+            "RupertBond",
+            "NadivaBryant",
+            "StevenDemper",
+            "IleneNathan",
+            "RhondaPearlman",
+            "DanielPhelan",
+            "GaryDiPasquale"
+        ]
+        
+        let prison = [
+            "DwightTilghman"
+        ]
 
     let initListOfCharacters = () => {
-        // TODO: use scraped data to make character objects and add to array
-        let CDaniels = new Character(
-            "Lieutenant",
-            "Cedric Daniels",
-            "./images/Cedric_Daniels.jpeg"
-        );
-        let OmarLittle = new Character(
-            "Stick-up man",
-            "Omar Little",
-            "./images/Omar_Little.png"
-        );
-
-        let AvonBarksdale = new Character(
-            "Drug kingpin",
-            "Avon Barksdale",
-            "./images/Avon_Barksdale.jpeg"
-        );
-
-        let DAngeloBarksdale = new Character(
-            "Crew Chief",
-            "D'Angelo Barksdale",
-            "./images/D'Angelo_Barksdale.jpeg"
-        );
-
-        let characters = [];
-        characters.push(CDaniels, OmarLittle, AvonBarksdale, DAngeloBarksdale);
-
-        let columnCounter = 1;
-
-        characters.forEach((character) => {
-
+        // let CDaniels = new Character(
+        //     "Lieutenant",
+        //     "Cedric Daniels",
+        //     "./images/Cedric_Daniels.jpeg"
+        // );
+        let CC = 0
+        barksdales.forEach((character) => {
+            CC += 1
             let cardContainer = document.createElement('div');
-            cardContainer.className = 'card';
-
-                let cardImage = document.createElement('img');
-                cardImage.className = "card-img-top";
-                cardImage.setAttribute('src', character.picture);
-
+            cardContainer.className = 'card'
+                // let cardImage = document.createElement('img');
+                // cardImage.className = "card-img-top";
+                // cardImage.setAttribute('src', character.picture);
                 let cardBody = document.createElement('div');
                 cardBody.className = "card-body";
 
                     let title = document.createElement('h5');
-                    title.className = "card-title";
-                    title.innerText = character.name;
-
                     let job = document.createElement('p');
+
+                    title.className = `character${CC}`;
                     job.className = 'card-text';
-                    job.innerText = character.job;
+
+                    title.innerText = character;
+                    job.innerText = "barksdale";
+
+                    $("#col1").innerText = "barksdale";
                     
-                cardBody.appendChild(title);
-                cardBody.appendChild(job);
+                cardBody.appendChild(title)
+                cardBody.appendChild(job)
 
-            cardContainer.appendChild(cardImage);
-            cardContainer.appendChild(cardBody);
-
-            document.getElementById(`col${columnCounter}`).appendChild(cardContainer);
-
-            if (columnCounter % 3 === 0) {
-                columnCounter = 0
-            };
-            columnCounter++;
+            console.log(cardBody.title)
         });
     };
     initListOfCharacters();
 });
+

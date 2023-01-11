@@ -1,0 +1,19 @@
+body {
+    color: black;
+    aspect-ratio: 100%;
+}
+
+.card {
+    margin-top: 2%;
+    border-color: black;
+    border-width: 1px
+}
+
+.card-img-top {
+    height: 300px;
+}
+
+.card-body {
+    background-color: gray;
+    /* opacity: 15%; */
+}

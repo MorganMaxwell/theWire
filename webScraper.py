@@ -1,17 +1,27 @@
-from urllib.request import urlopen
+from urllib import urlopen
 from bs4 import BeautifulSoup
 
-# getting all main character names, not alphabetical, not grouped, and grabbing other crap too
 
-# url = urlopen("https://thewire.fandom.com/wiki/Characters")
+# url = urlopen("https://en.wikipedia.org/wiki/List_of_The_Wire_characters")
 # bsObj = BeautifulSoup(url.read())
-# # need to go into the list of characters.
-# names = bsObj.find_all(attrs={"data-tracking": "custom-level-3"})
-# for name in names:
-#     print(name.text)
+# names = bsObj.find_all()
+
+# wikipedia API?
+# "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=James%20McNulty&format=json"
+
+# gets all main character names unsorted, and grabs other crap too
+def scraper():
+    print("hello world")
 
 
-# getting names  from wikipedia, but some of the headlines are actually seperators with no distintion ex. officers, detectives, etc. 
+url = urlopen("https://thewire.fandom.com/wiki/Characters")
+bsObj = BeautifulSoup(url.read())
+# need to go into the list of characters.
+names = bsObj.find_all(attrs={"data-tracking": "custom-level-3"})
+for name in names:
+    print(name.text)
+
+# gets names from wikipedia, but some headlines are seperators ex. officers:, detectives:, etc. 
 
 # url = urlopen("https://en.wikipedia.org/wiki/Police_of_The_Wire")
 # bsObj = BeautifulSoup(url.read())

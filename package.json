@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "thewire",
   "version": "1.0.0",
   "description": "The Wire Character Database",
