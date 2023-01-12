@@ -1,6 +1,6 @@
-$(document).ready(function () {
+jQuery(document).ready(function () {
     /*  - Name/Nickname ☑️
-        - Job/Title ☑️
+        - organization/Title ☑️
         - Picture ☑️
         - About section
         - Related Organization(street, cops, etc)
@@ -240,14 +240,14 @@ $(document).ready(function () {
             "DwightTilghman"
         ]
 
-    let initListOfCharacters = () => {
+    let initListOfCharacters = (characters) => {
         // let CDaniels = new Character(
         //     "Lieutenant",
         //     "Cedric Daniels",
         //     "./images/Cedric_Daniels.jpeg"
         // );
         let CC = 0
-        barksdales.forEach((character) => {
+        characters.forEach((character) => {
             CC += 1
             let cardContainer = document.createElement('div');
             cardContainer.className = 'card'
@@ -258,22 +258,22 @@ $(document).ready(function () {
                 cardBody.className = "card-body";
 
                     let title = document.createElement('h5');
-                    let job = document.createElement('p');
+                    let organization = document.createElement('p');
 
                     title.className = `character${CC}`;
-                    job.className = 'card-text';
+                    organization.className = 'card-text';
 
                     title.innerText = character;
-                    job.innerText = "barksdale";
-
-                    $("#col1").innerText = "barksdale";
+                    organization.innerText = "this p tag left intentionally blank";
                     
                 cardBody.appendChild(title)
-                cardBody.appendChild(job)
+                cardBody.appendChild(organization)
+            cardContainer.appendChild(cardBody)
 
-            console.log(cardBody.title)
+            console.log(cardBody)
+            jQuery(".container").append(cardContainer)
         });
     };
-    initListOfCharacters();
+    initListOfCharacters(barksdales);
 });
 
